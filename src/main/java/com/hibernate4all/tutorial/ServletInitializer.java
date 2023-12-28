@@ -1,4 +1,4 @@
-package com.hibernate4all.tutoriel;
+package com.hibernate4all.tutorial;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
