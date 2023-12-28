@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>
+				%d{HH:mm:ss} %-5level %logger{15}.%M %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	<root level="WARN">
+		<appender-ref ref="STDOUT" />
+	</root>
+	
+	<logger name="org.hibernate.SQL" level="DEBUG"/>
+	<!-- <logger name="org.springfrmework.orm.jpl.JpaTrasantionManager" level="DEBUG" /> -->
+	<!--<logger name="org.hibernate.internal.SessionImpl" level="TRACE" /> -->
+	<logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
+	<logger name="com.hibernate4all.tutorial.repository.MovieRepository" level="TRACE"/>
+	
+</configuration>
