@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hibernate4all</groupId>
-	<artifactId>tutoriel</artifactId>
+	<artifactId>tutorial</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>tutoriel</name>
+	<name>tutorial</name>
 	<description>leaning Hibernate and JPA</description>
 	<properties>
 		<java.version>11</java.version>
