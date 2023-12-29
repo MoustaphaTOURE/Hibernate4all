@@ -1,4 +1,4 @@
-package com.hibernate4all.tutoriel.config;
+package com.hibernate4all.tutorial.config;
 
 import java.util.Properties;
 

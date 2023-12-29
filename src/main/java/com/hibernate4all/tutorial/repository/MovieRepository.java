@@ -27,8 +27,12 @@ public class MovieRepository {
 		LOGGER.trace("entityManager.contains(movie) : " + entityManager.contains(movie));
 	}
 	
+	public Movie find(final Long id) {
+		return entityManager.find(Movie.class, id);
+	}
+	
 	public List<Movie> getAll() {
-		throw new UnsupportedOperationException();
+		return entityManager.createQuery("From Movie", Movie.class).getResultList();
 	}
 
 }
