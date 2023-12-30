@@ -12,6 +12,7 @@ public class Movie {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 	private String name;
+	private String description;
 	
 	public Long getId() {
 		return id;
@@ -25,8 +26,10 @@ public class Movie {
 	public void setName(final String name) {
 		this.name = name;
 	}
-	
-	
-	
-
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(final String description) {
+		this.description = description;
+	}
 }
