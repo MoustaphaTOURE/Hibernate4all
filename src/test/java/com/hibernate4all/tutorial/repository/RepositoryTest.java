@@ -1,11 +1,15 @@
 package com.hibernate4all.tutorial.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
 
+import org.hibernate.LazyInitializationException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
@@ -21,6 +25,7 @@ import com.hibernate4all.tutorial.domain.Movie;
 @Sql(scripts = {"/datas/datas-test.sql"})
 public class RepositoryTest {
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(RepositoryTest.class);
 	
 	@Autowired
 	private MovieRepository repository;
@@ -50,6 +55,14 @@ public class RepositoryTest {
 		movie.setId(-2L);
 		movie.setName("Inception 2");
 		repository.merge(movie);
+	}
+	
+	@Test
+	public void getReference_casNominal() {
+		assertThrows(LazyInitializationException.class, ()->{
+			final Movie reference = repository.getReference(-2L);
+			LOGGER.trace("id={} - name={}", reference.getId(), reference.getName());
+		});
 	}
 
 }

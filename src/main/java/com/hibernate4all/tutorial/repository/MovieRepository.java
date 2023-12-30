@@ -39,4 +39,9 @@ public class MovieRepository {
 	public void merge(final Movie movie) {
 		 entityManager.merge(movie);
 	}
+	
+	@Transactional
+	public Movie getReference(final Long id) {
+		return entityManager.getReference(Movie.class,id);
+	}
 }
