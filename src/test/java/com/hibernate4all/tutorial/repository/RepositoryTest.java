@@ -54,6 +54,8 @@ public class RepositoryTest {
 		final Movie movie = new Movie();
 		movie.setId(-2L);
 		movie.setName("Inception 2");
+		
+		// send select request to DB then comparing old&DB data for updating 
 		repository.merge(movie);
 	}
 	
@@ -61,7 +63,9 @@ public class RepositoryTest {
 	public void getReference_casNominal() {
 		assertThrows(LazyInitializationException.class, ()->{
 			final Movie reference = repository.getReference(-2L);
-			LOGGER.trace("id={} - name={}", reference.getId(), reference.getName());
+			
+			// Send select request to DB while session is closed
+			LOGGER.trace("id={} - name={}", reference.getId(), reference.getName()); 
 		});
 	}
 
