@@ -34,5 +34,9 @@ public class MovieRepository {
 	public List<Movie> getAll() {
 		return entityManager.createQuery("From Movie", Movie.class).getResultList();
 	}
-
+	
+	@Transactional
+	public void merge(final Movie movie) {
+		 entityManager.merge(movie);
+	}
 }

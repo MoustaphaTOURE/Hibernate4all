@@ -43,5 +43,13 @@ public class RepositoryTest {
 		final List<Movie> foundedEntities = repository.getAll();
 		assertEquals(foundedEntities.size(), 2, "bad size of all entities");
 	}
+	
+	@Test
+	public void merge_casNominal() {
+		final Movie movie = new Movie();
+		movie.setId(-2L);
+		movie.setName("Inception 2");
+		repository.merge(movie);
+	}
 
 }
